@@ -1,0 +1,9 @@
+-f https://download.pytorch.org/whl/torch_stable.html
+torch
+torchaudio
+numpy
+scipy
+scikit-learn
+tqdm
+torchvision
+soundfile
