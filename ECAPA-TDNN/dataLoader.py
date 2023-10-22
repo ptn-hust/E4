@@ -48,8 +48,11 @@ class train_loader(object):
 		# 		self.noiselist[file.split('/')[-4]] = []
 		# 	self.noiselist[file.split('/')[-4]].append(file)
 
-		self.rir_files = glob.glob(os.path.join(rir_path, '*/*/*.wav'))
-
+		# self.rir_files = glob.glob(os.path.join(rir_path, '*/*/*.wav'))
+		self.rir_files = glob.glob(os.path.join(rir_path, '*.wav'))
+		if not self.rir_files:
+			print("No WAV files found in the provided directory.")
+		
 		# Load data & labels
 		self.data_list = []
 		self.data_label = []
