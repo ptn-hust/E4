@@ -91,7 +91,7 @@ class ECAPAModel(nn.Module):
 			labels.append(int(line.split()[0]))
 		
 		# write scores to file
-		score_file = open("data/dev/eval_score.txt", "w")
+		score_file = open("eval_score.txt", "w")
 		for score in scores:
 			score_file.write("%f\n"%score)
 		score_file.close()
