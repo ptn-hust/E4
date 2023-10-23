@@ -89,7 +89,14 @@ class ECAPAModel(nn.Module):
 			score = score.detach().cpu().numpy()
 			scores.append(score)
 			labels.append(int(line.split()[0]))
-			
+		
+		# write scores to file
+		score_file = open("data/dev/eval_score.txt", "w")
+		for score in scores:
+			score_file.write("%f\n"%score)
+		score_file.close()
+
+
 		# Coumpute EER and minDCF
 		EER = tuneThresholdfromScore(scores, labels, [1, 0.1])[1]
 		fnrs, fprs, thresholds = ComputeErrorRates(scores, labels)
